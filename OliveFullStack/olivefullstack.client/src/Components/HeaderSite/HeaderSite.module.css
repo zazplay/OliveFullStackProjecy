@@ -1,0 +1,21 @@
+.HeaderSite {
+    font-family:  sans-serif;
+
+}
+.no-margin-padding {
+    margin: 0;
+    padding: 0;
+}
+.imgGlobe {
+    width: 2em;
+}
+.link{
+    font-size:x-large;
+    font-weight:bold;
+    
+}
+
+.logo {
+    font-size: xx-large;
+    font-weight: bold;
+}
