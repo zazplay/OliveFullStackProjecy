@@ -1,0 +1,20 @@
+.SectionNews {
+}
+
+.mainCard {
+    display:flex;
+    flex-direction:column;
+    min-width: 498px;
+    text-align: left;
+    padding: 1em;
+    height: max-content;
+    padding-bottom: 50px;
+}
+
+.cardBody {
+    padding: 0;
+}
+
+.Img {
+    height:200px;
+}

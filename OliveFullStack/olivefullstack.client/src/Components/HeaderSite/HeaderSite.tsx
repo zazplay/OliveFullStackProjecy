@@ -16,7 +16,7 @@ const HeaderSite: FC = () => (
                 <Nav.Link href="#" className={item.link} style={{ marginLeft: "0.6rem" }} >EN&nbsp;</Nav.Link>
                 <Nav.Link href="#" className={item.link}>UK</Nav.Link>
             </div>
-            <Nav.Link href="#" className={item.logo}>Vivo<span style={{ color: "olivedrab" }} >Olio</span><span style={{ color: "orange" }} >News</span> </Nav.Link>
+            <Nav.Link href="#" className={item.logo}>Top<span style={{ color: "olivedrab" }} >News</span><span style={{ color: "orange" }} >Proger</span> </Nav.Link>
             <Nav.Link href="#" className={item.link}><FontAwesomeIcon icon={faUser} style={{ color: "#aab0bb", }} /></Nav.Link>
         </div>
     </Navbar>

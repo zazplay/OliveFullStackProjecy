@@ -3,5 +3,12 @@
     position: absolute;
     bottom: 0;   
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 5fr 1fr;
+}
+
+.LogoAndTime{
+    display:flex;
+    flex-direction:row;
+
+
 }

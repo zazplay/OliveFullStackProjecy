@@ -5,11 +5,11 @@ import styles from './FooterCardNews.module.css';
 
 const FooterCardNews: FC= () => (
     <div className={styles.FooterCardNews}>
-        <div style={{ display: "flex", flexDirection: "row"}} >
+        <div className={styles.LogoAndTime} >
             <div>Logo and text</div>
             <div>time</div>
         </div>
-        <div style={{ textAlign:"right" }} >date</div>
+        <div>date</div>
   </div>
 );
 
