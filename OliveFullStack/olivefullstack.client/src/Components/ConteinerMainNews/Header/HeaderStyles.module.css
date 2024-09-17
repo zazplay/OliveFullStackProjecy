@@ -1,0 +1,33 @@
+.h1{
+    margin-top:1em;
+    text-align:left;
+    font-weight:800;
+    font-family: sans-serif;
+}
+
+.news{
+    color:olivedrab;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-top: 3em;
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+    padding: 0;
+}
+
+.mainCard {
+    /*display:grid;
+    grid-template-rows:1fr 1fr;*/
+    min-width: 498px;
+    text-align: left;
+    padding: 1em;
+    height: 350px;
+}
+
+.cardBody{
+    padding:0;
+}
