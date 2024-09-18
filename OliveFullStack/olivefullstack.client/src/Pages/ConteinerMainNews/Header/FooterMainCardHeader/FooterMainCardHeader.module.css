@@ -1,0 +1,13 @@
+.FooterMainCardHeader {
+    width: 92%;
+    position: absolute;
+    bottom: 0;
+    display: grid;
+    grid-template-columns: 5fr 1fr;
+    padding-bottom:10px;
+}
+
+.LogoAndTime {
+    display: flex;
+    flex-direction: row;
+}

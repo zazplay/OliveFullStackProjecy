@@ -1,0 +1,11 @@
+.PageCurentNews {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    /*margin-top: 3em;
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 0;*/
+    padding: 0;
+    width: 1000px;
+    margin: 0 auto;
+}

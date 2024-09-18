@@ -1,0 +1,29 @@
+.HeaderSite {
+    font-family:  sans-serif;
+    width:1000px;
+    margin:0 auto;
+}
+.no-margin-padding {
+    margin: 0;
+    padding: 0;
+}
+.imgGlobe {
+    width: 2em;
+}
+.link{
+    font-size:x-large;
+    font-weight:bold;
+    
+}
+
+.logo {
+    font-size: xx-large;
+    font-weight: bold;
+}
+.navigation {
+    width:100%;
+    display: flex;
+    flex-direction: row;
+    justify-content:space-between;
+    align-items:center;
+}
