@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import styles from './HeaderListCardNews.module.css';
-import CardNews from '../../../CardNews/CardNews';
+import CardNews from '../../../../Components/CardNews/CardNews';
 
 interface ListCardNewsProps {
     n: number

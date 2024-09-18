@@ -1,9 +1,7 @@
-import React, { FC } from 'react';
+import { FC } from 'react';
 import styles from './AdminPage.module.css';
 
-interface AdminPageProps {}
-
-const AdminPage: FC<AdminPageProps> = () => (
+const AdminPage: FC = () => (
   <div className={styles.AdminPage}>
     AdminPage Component
   </div>

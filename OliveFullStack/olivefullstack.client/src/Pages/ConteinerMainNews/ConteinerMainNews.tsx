@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import styles from './ConteinerMainNews.module.css';
 import Header from './Header/Header';
-import ListCardNews from '../ListCardNews/ListCardNews';
+import ListCardNews from '../../Components/ListCardNews/ListCardNews';
 
 //interface ConteinerMainNewsProps {}
 

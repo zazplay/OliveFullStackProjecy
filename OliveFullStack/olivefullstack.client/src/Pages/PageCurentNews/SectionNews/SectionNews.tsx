@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import styles from './SectionNews.module.css';
 import Card from 'react-bootstrap/esm/Card';
-import FooterMainCardHeader from '../../../Components/ConteinerMainNews/Header/FooterMainCardHeader/FooterMainCardHeader';
+import FooterMainCardHeader from '../../ConteinerMainNews/Header/FooterMainCardHeader/FooterMainCardHeader';
 
 
 const SectionNews: FC = () => (
