@@ -3,12 +3,13 @@ import styles from './AdminPage.module.css';
 import Form from 'react-bootstrap/esm/Form';
 import InputGroup from 'react-bootstrap/esm/InputGroup';
 import Button from 'react-bootstrap/esm/Button';
+import "../../Components/App/App.css"
 
 const AdminPage: FC = () => {
 
 
     return (
-        <div className={styles.AdminPage}>
+        <div className="width-main-container">
             <div className={styles.AdminTitle} >Admin <span style={{ color: "skyblue" }} >panel</span> </div>
             <div className={styles.ConteinerCRUDOperation} >
                 <div><InputGroup className="mb-3 w-75">

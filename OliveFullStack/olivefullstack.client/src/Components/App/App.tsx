@@ -1,24 +1,23 @@
-//import PageCurentNews from '../../Pages/PageCurentNews/PageCurentNews';
 import Footer from '../Footer/Footer';
 import HeaderSite from '../HeaderSite/HeaderSite';
 import { BrowserRouter as Router, Route,  Routes } from 'react-router-dom';
 import AdminPage from '../../Pages/AdminPage/AdminPage';
 import './App.css';
-//import ConteinerMainNews from '../../Pages/ConteinerMainNews/ConteinerMainNews';
+import RegistrForm from '../../Pages/RegistrForm/RegistrForm';
+import LoginForm from '../../Pages/LoginForm/LoginForm';
+import ConteinerMainNews from '../../Pages/ConteinerMainNews/ConteinerMainNews';
 
-{/*<Route path="/home" element={<HomePage />} />*/ }
-{/*<Route path="/login" element={<LoginForm onReloadNavBar={trigerReloadNavBar} />} />*/ }
-{/*<Route path="/registr" element={<RegistrForm />} />*/ }
-{/*<Route path="/notes" element={<NotesPage />} />*/ }
-{/*<Route path="/admin" element={<AdminPanel />} />*/ }
 function App() {
     return (<div>
         <Router >
             <HeaderSite />
             <hr className="hr-head" />
             <Routes>
-                <Route path="/" element={<AdminPage />} />
-                
+                <Route path="/" element={<ConteinerMainNews />} />
+                <Route path="/home" element={<ConteinerMainNews />} />
+                <Route path="/admin" element={<AdminPage />} />
+                <Route path="/registation" element={<RegistrForm />} />
+                <Route path="/login" element={<LoginForm />} />
             </Routes>
             <Footer />
         </Router>
