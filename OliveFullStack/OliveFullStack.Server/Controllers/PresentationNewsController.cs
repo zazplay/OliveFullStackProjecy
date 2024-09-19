@@ -24,7 +24,7 @@ namespace OliveFullStack.PresentationLayer.Controllers
 
         // Доступ для ролей "user" и "admin"
         [HttpGet]
-        [Authorize(Roles = "User,Admin")]
+        //[Authorize(Roles = "User,Admin")]
         public async Task<IActionResult> GetAll()
         {
             var news = await _newsService.GetAllNews();
@@ -35,7 +35,7 @@ namespace OliveFullStack.PresentationLayer.Controllers
         // Доступ только для администраторов
         [HttpGet]
         [Route("{id:Guid}")]
-        [Authorize(Roles = "Admin")]
+        //[Authorize(Roles = "Admin")]
         public async Task<IActionResult> GetSingle([FromRoute] Guid id)
         {
             var news = await _newsService.GetNewsById(id);

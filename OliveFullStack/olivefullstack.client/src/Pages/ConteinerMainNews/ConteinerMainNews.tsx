@@ -2,11 +2,11 @@ import { FC } from 'react';
 import styles from './ConteinerMainNews.module.css';
 import Header from './Header/Header';
 import ListCardNews from '../../Components/ListCardNews/ListCardNews';
-
+import '../../Components/App/App.css'
 //interface ConteinerMainNewsProps {}
 
 const ConteinerMainNews: FC = () => (
-    <div className={styles.ConteinerMainNews}>
+    <div className="width-main-container">
         <Header />
         <hr className={styles.hr} />
         <div className={styles.BodyNews} >

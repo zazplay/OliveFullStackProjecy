@@ -7,7 +7,7 @@ const CardNews: FC = () => (
     <div className={styles.CardNews} >
         <img className={styles.imgStyles} src={imgPicture} />
         <div className={styles.ContainerInfo} >
-            <div className={styles.cardBody} ><h2>Title</h2></div>
+            <div className={styles.cardBody} ><h2>Title Заголовок</h2></div>
             <FooterCardNews />
         </div>
     </div>

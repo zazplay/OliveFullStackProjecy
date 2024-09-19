@@ -1,28 +1,35 @@
-//import ConteinerMainNews from '../ConteinerMainNews/ConteinerMainNews';
-//import PageCurentNews from '../../Pages/PageCurentNews/PageCurentNews';
-//import Footer from '../Footer/Footer';
-//import HeaderSite from '../HeaderSite/HeaderSite';
+import Footer from '../Footer/Footer';
+import HeaderSite from '../HeaderSite/HeaderSite';
+import { BrowserRouter as Router, Route,  Routes } from 'react-router-dom';
 import AdminPage from '../../Pages/AdminPage/AdminPage';
 import './App.css';
-
+import RegistrForm from '../../Pages/RegistrForm/RegistrForm';
+import LoginForm from '../../Pages/LoginForm/LoginForm';
+import ConteinerMainNews from '../../Pages/ConteinerMainNews/ConteinerMainNews';
+import AddNewsForm from '../../Pages/AddNewsForm/AddNewsForm';
 
 function App() {
-    return (<>
-        <AdminPage/>
-    </>);
-    //return (
-    //    <>
-    //        <HeaderSite />
-    //        <hr className="hr-head" />
+    return (<div>
+        <Router >
+            <HeaderSite />
+            <hr className="hr-head" />
+            <Routes>
+                <Route path="/" element={<ConteinerMainNews />} />
+                <Route path="/home" element={<ConteinerMainNews />} />
+                <Route path="/admin" element={<AdminPage />} />
+                <Route path="/registation" element={<RegistrForm />} />
+                <Route path="/login" element={<LoginForm />} />
+                <Route path="/add_news" element={<AddNewsForm />} />
+            </Routes>
+            <Footer />
+        </Router>
+        </div>
+        
+    );
+    //<AdminPage />
     //        <PageCurentNews />
-    //        <Footer/>
-    //    </>);
-    //return (<>
-    //    <HeaderSite />
-    //    <hr className="hr-head" />
     //    <ConteinerMainNews />
-    //    <Footer />
-    //</>);
+   
 }
 
 export default App;
