@@ -24,7 +24,7 @@ namespace OliveFullStack.PresentationLayer.Controllers
 
         // Доступ для ролей "user" и "admin"
         [HttpGet]
-        [Authorize(Roles = "User,Admin")]
+        //[Authorize(Roles = "User,Admin")]
         public async Task<IActionResult> GetAll()
         {
             var news = await _newsService.GetAllNews();

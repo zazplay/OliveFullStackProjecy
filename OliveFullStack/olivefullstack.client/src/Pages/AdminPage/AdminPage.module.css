@@ -1,1 +1,19 @@
-.AdminPage {}
+.AdminPage {
+    font-family: sans-serif;
+    width: 1000px;
+    margin: 0 auto;
+}
+
+.AdminTitle {
+    text-align:left;
+    font-family: sans-serif;
+    font-weight:bold;
+    font-size:xx-large;
+    margin-top:2em;
+    margin-bottom:1em;
+}
+
+.ConteinerCRUDOperation {
+    display: grid;
+    grid-template-columns: 4fr 1fr 1fr 1fr 1fr;
+}
