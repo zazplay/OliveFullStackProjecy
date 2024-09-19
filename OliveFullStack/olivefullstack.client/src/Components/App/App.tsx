@@ -6,6 +6,7 @@ import './App.css';
 import RegistrForm from '../../Pages/RegistrForm/RegistrForm';
 import LoginForm from '../../Pages/LoginForm/LoginForm';
 import ConteinerMainNews from '../../Pages/ConteinerMainNews/ConteinerMainNews';
+import AddNewsForm from '../../Pages/AddNewsForm/AddNewsForm';
 
 function App() {
     return (<div>
@@ -18,6 +19,7 @@ function App() {
                 <Route path="/admin" element={<AdminPage />} />
                 <Route path="/registation" element={<RegistrForm />} />
                 <Route path="/login" element={<LoginForm />} />
+                <Route path="/add_news" element={<AddNewsForm />} />
             </Routes>
             <Footer />
         </Router>

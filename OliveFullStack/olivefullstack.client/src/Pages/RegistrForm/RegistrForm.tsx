@@ -38,16 +38,21 @@ const RegistrForm: FC = () => {
 
         const loginPayload = { Username: login, Email: email, Password: pass };
         try {
-            axios.post("https://localhost:7299/api/Authenticate/register", loginPayload).then((response) => {
+            axios.post("https://localhost:7142/api/Authenticate/register", loginPayload).then((response) => {
                 if (response.status != 200) { console.log(response.status) }
 
-            }).catch((e) => console.log(e));
+            }).catch((e) => console.log("Error", e));
+
+
         }
         catch (e) {
             console.log(e);
         }
-        
-        navigate('/login');
+
+        setTimeout(() => {
+            return navigate('/login');
+        }, 1000);
+
     }
 
     return (
@@ -97,7 +102,7 @@ const RegistrForm: FC = () => {
                 </Button>
             </Form>
         </div>
-        
+
     )
 };
 

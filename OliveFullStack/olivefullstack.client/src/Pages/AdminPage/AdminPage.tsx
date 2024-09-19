@@ -4,9 +4,26 @@ import Form from 'react-bootstrap/esm/Form';
 import InputGroup from 'react-bootstrap/esm/InputGroup';
 import Button from 'react-bootstrap/esm/Button';
 import "../../Components/App/App.css"
+//import axios from 'axios';
 
 const AdminPage: FC = () => {
+    //const [allNews, setAllNews] = useState<[] | null>();
 
+    //useEffect(() => {
+    //    const token = localStorage.getItem('token');
+
+    //    handleLoadNews = () => {
+    //        const response = axios.get("https://localhost:7142/PresentationNews", {
+    //            headers: {
+    //                'Authorization': `Bearer ${token}` // Добавляем токен в заголовок
+    //            }
+    //        }).then((resp) => {
+    //            console.log(resp);
+    //        }).catch((e) => console.log(e));
+
+    //        console.log("response", response);
+
+    //});
 
     return (
         <div className="width-main-container">
@@ -23,13 +40,13 @@ const AdminPage: FC = () => {
                     </Button>
                 </InputGroup>
                 </div>
-                <a href={"#"}>+ Publish</a>
+                <a href={"add_news"}>+ Publish</a>
                 <Button>Delete</Button>
                 <div>Sorting</div>
                 <div>Filter</div>
             </div>
             <div >
-
+                
             </div>
            
 

@@ -9,6 +9,7 @@ const LoginForm: FC = () => {
 
     const [login, setLogin] = useState<string>('');
     const [pass, setPass] = useState<string>('');
+    const [status, setStatus] = useState("");
 
     const handleChangeLogin = (event: React.ChangeEvent<HTMLInputElement>) => {
         setLogin(event.target.value);
@@ -24,22 +25,25 @@ const LoginForm: FC = () => {
 
         const loginPayload = { Username: login, Password: pass };
 
-        axios.post("https://localhost:7299/api/Authenticate/login", loginPayload).then((response) => {
+        axios.post("https://localhost:7142/api/Authenticate/login", loginPayload).then((response) => {
             console.log(response);
             localStorage.setItem("token", response.data.token);
         }).catch((e) => {
             console.log(e);
             setLogin("");
             setPass("");
+            setStatus("Wrong login or password.");
+
             return;
         });
 
         setTimeout(() => {
             if (localStorage.getItem('token') !== null) {
+                setStatus("You autoritheit.");
                 //setTimeout(onReloadNavBar, 1000);
 
                 const handleRedirect = () => {
-                    window.location.href = '/notes'; // Перезагрузка страницы и переход на другой маршрут
+                    window.location.href = '/home'; // Перезагрузка страницы и переход на другой маршрут
                 };
                 setTimeout(handleRedirect, 1000);
             }
@@ -49,6 +53,7 @@ const LoginForm: FC = () => {
 
     return (
         <div className="width-main-container">
+            <div className="status-note-style">{status}</div>
             <Form className={styles.Form} onSubmit={handleOnSubmit} >
                 <Form.Group className="mb-3" controlId="formBasicLogin">
                     <Form.Label className={styles.Label} >Login</Form.Label>

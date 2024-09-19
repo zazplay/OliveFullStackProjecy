@@ -35,7 +35,7 @@ namespace OliveFullStack.PresentationLayer.Controllers
         // Доступ только для администраторов
         [HttpGet]
         [Route("{id:Guid}")]
-        [Authorize(Roles = "Admin")]
+        //[Authorize(Roles = "Admin")]
         public async Task<IActionResult> GetSingle([FromRoute] Guid id)
         {
             var news = await _newsService.GetNewsById(id);
