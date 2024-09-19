@@ -4,6 +4,8 @@ import Form from 'react-bootstrap/esm/Form';
 import InputGroup from 'react-bootstrap/esm/InputGroup';
 import Button from 'react-bootstrap/esm/Button';
 import "../../Components/App/App.css"
+import AdminNewsComp from './AdminNewsComp/AdminNewsComp';
+import ListNewsForAdmin from './ListNewsForAdmin/ListNewsForAdmin';
 //import axios from 'axios';
 
 const AdminPage: FC = () => {
@@ -15,7 +17,7 @@ const AdminPage: FC = () => {
     //    handleLoadNews = () => {
     //        const response = axios.get("https://localhost:7142/PresentationNews", {
     //            headers: {
-    //                'Authorization': `Bearer ${token}` // Добавляем токен в заголовок
+    //                'Authorization': `Bearer ${token}` // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
     //            }
     //        }).then((resp) => {
     //            console.log(resp);
@@ -44,7 +46,13 @@ const AdminPage: FC = () => {
                 <Button>Delete</Button>
                 <div>Sorting</div>
                 <div>Filter</div>
+                
             </div>
+            <ListNewsForAdmin>
+
+
+                    
+                </ListNewsForAdmin>
             <div >
                 
             </div>
