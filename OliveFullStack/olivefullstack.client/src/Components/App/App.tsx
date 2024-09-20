@@ -1,12 +1,13 @@
 import Footer from '../Footer/Footer';
 import HeaderSite from '../HeaderSite/HeaderSite';
-import { BrowserRouter as Router, Route,  Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import AdminPage from '../../Pages/AdminPage/AdminPage';
 import './App.css';
 import RegistrForm from '../../Pages/RegistrForm/RegistrForm';
 import LoginForm from '../../Pages/LoginForm/LoginForm';
 import ConteinerMainNews from '../../Pages/ConteinerMainNews/ConteinerMainNews';
 import AddNewsForm from '../../Pages/AddNewsForm/AddNewsForm';
+import PageCurentNews from '../../Pages/PageCurentNews/PageCurentNews';
 
 function App() {
     return (<div>
@@ -20,16 +21,17 @@ function App() {
                 <Route path="/registation" element={<RegistrForm />} />
                 <Route path="/login" element={<LoginForm />} />
                 <Route path="/add_news" element={<AddNewsForm />} />
+                <Route path="/news" element={<PageCurentNews />}/>
             </Routes>
             <Footer />
         </Router>
-        </div>
-        
+    </div>
+
     );
     //<AdminPage />
     //        <PageCurentNews />
     //    <ConteinerMainNews />
-   
+
 }
 
 export default App;

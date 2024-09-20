@@ -4,6 +4,7 @@ import Form from 'react-bootstrap/esm/Form';
 import InputGroup from 'react-bootstrap/esm/InputGroup';
 import Button from 'react-bootstrap/esm/Button';
 import "../../Components/App/App.css"
+import ListNewsForAdmin from './ListNewsForAdmin/ListNewsForAdmin';
 //import axios from 'axios';
 
 const AdminPage: FC = () => {
@@ -46,7 +47,7 @@ const AdminPage: FC = () => {
                 <div>Filter</div>
             </div>
             <div >
-                
+                <ListNewsForAdmin/>
             </div>
            
 
