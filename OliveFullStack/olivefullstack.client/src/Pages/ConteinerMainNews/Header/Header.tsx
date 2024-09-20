@@ -10,7 +10,8 @@ interface News {
     description: string;
     imgSrc: string;
     source: string;
-    createdAt: string;
+    createdAt: Date;
+    //createdAt: string;
 }
 
 interface ArrayNews {

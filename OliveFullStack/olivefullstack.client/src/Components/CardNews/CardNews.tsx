@@ -11,7 +11,8 @@ interface News {
     description: string;
     imgSrc: string;
     source: string;
-    createdAt: string;
+    createdAt: Date;
+    //createdAt: string;
 }
 
 interface ObjNews {
@@ -28,12 +29,13 @@ export const CardNews: FC<ObjNews> = ({ obj }) => {
 
     }
 
+
     return (
         <div className={styles.CardNews} onClick={handleClick} >
             <img className={styles.imgStyles} src={obj.imgSrc} />
             <div className={styles.ContainerInfo} >
                 <div className={styles.cardBody} >{obj.title}</div>
-                <FooterCardNews />
+                <FooterCardNews date={obj.createdAt} />
             </div>
         </div>
     );

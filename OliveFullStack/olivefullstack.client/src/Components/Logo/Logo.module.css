@@ -9,6 +9,6 @@
     grid-template-columns: 1fr 2fr;
     width: 90px;
     align-items:center;
-    font-weight:bold;
-    font-size:x-small;
+    /*font-weight:bold;
+    font-size:x-small;*/
 }
