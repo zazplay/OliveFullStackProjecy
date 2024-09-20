@@ -27,7 +27,7 @@ const Header: FC<ArrayNews> = ({ array }) => {
             <Container className={styles.container} >
                 <MainCardHeader topNews={array[0]} />
                 <Container>
-                    <HeaderListCardNews n={3} />
+                    <HeaderListCardNews n={3} arrayNews={array } />
                 </Container>
 
             </Container>

@@ -1,18 +1,28 @@
 import { FC } from 'react';
 import styles from './HeaderListCardNews.module.css';
 import { CardNews } from '../../../../Components/CardNews/CardNews';
-
+interface News {
+    id: string;
+    title: string;
+    description: string;
+    imgSrc: string;
+    source: string;
+    createdAt: string;
+}
 interface HeaderListCardNewsProps {
-    n: number
+    n: number,
+    arrayNews: News[]
 }
 
-const HeaderListCardNews: FC<HeaderListCardNewsProps> = ({ n }) => {
-    const items = Array.from({ length: n }, (_, index) => (
-        <CardNews key={index} id={"90954955-c037-45b5-9501-724c06110380"} />
-    ));
+//контеинер с 3 карточками с права от большой на главной странице
+const HeaderListCardNews: FC<HeaderListCardNewsProps> = ({ n, arrayNews }) => {
+    const newArr = arrayNews.slice(0, n);//получаем первые n елементов
+
+    const items: React.ReactNode[] = newArr.map((item) =>
+        item &&
+        <CardNews key={item.id} obj={item} />);//если елемент существует мапим его в карточку
 
     return <div className={styles.ListCardNews} >{items}</div>;
-
 };
 
 export default HeaderListCardNews;

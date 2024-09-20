@@ -2,21 +2,29 @@ import { FC } from 'react';
 import styles from './ListCardNews.module.css';
 import { CardNews } from '../CardNews/CardNews';
 
-interface ListCardNewsProps {
-    n: number
+interface News {
+    id: string;
+    title: string;
+    description: string;
+    imgSrc: string;
+    source: string;
+    createdAt: string;
 }
 
-const ListCardNews: FC<ListCardNewsProps> = ({ n }) => {
+interface ListCardNewsProps {
+    n: number,
+    arrayNews: News[]
+}
 
+export const ListCardNews: FC<ListCardNewsProps> = ({ arrayNews,n }) => {
 
+    const newArr = arrayNews.slice(0, n);//получаем первые n елементов
 
+    const items: React.ReactNode[] = newArr.map((item) =>
+        item &&
+        <CardNews key={item.id} obj={item} />);
 
-    const items = Array.from({ length: n }, (_, index) => (
-        <CardNews key={index} id={"90954955-c037-45b5-9501-724c06110380"} />
-    ));
-
-    return <div className={ styles.ListCardNews} >{items}</div>;
+    return <div className={styles.ListCardNews} >{items}</div>;
 
 };
 
-export default ListCardNews;

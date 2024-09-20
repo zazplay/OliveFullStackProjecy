@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace OliveFullStack.PresentationLayer.Controllers
 {
-    [Authorize]
+    //[Authorize]
     [ApiController]
     [Route("[controller]")]
     public class PresentationNewsController : Controller

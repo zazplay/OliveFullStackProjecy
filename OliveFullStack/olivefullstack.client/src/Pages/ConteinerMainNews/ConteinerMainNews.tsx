@@ -1,9 +1,9 @@
 import { FC, useEffect, useState } from 'react';
 import styles from './ConteinerMainNews.module.css';
 import Header from './Header/Header';
-import ListCardNews from '../../Components/ListCardNews/ListCardNews';
 import '../../Components/App/App.css'
 import axios from 'axios';
+import { ListCardNews } from '../../Components/ListCardNews/ListCardNews';
 //interface ConteinerMainNewsProps {}
 interface News {
     id: string;
@@ -59,8 +59,8 @@ const ConteinerMainNews: FC = () => {
             <hr className={styles.hr} />
             <div className="style-for-title-container">News</div>
             <div className={styles.BodyNews} >
-                <ListCardNews n={6} />
-                <ListCardNews n={6} />
+                <ListCardNews n={6} arrayNews={listNews} />
+                <ListCardNews n={6} arrayNews={listNews} />
             </div>
         </div>
     );
