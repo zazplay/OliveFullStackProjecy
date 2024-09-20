@@ -7,6 +7,10 @@ interface ListCardNewsProps {
 }
 
 const ListCardNews: FC<ListCardNewsProps> = ({ n }) => {
+
+
+
+
     const items = Array.from({ length: n }, (_, index) => (
         <CardNews key={index} id={"90954955-c037-45b5-9501-724c06110380"} />
     ));

@@ -3,7 +3,7 @@ import styles from './CardNews.module.css';
 import FooterCardNews from '../FooterCardNews/FooterCardNews';
 import imgPicture from "../../Img/img-academy-logo-400x356.jpg"
 import { useNavigate } from 'react-router-dom';
-import { useStateNews } from '../../State/useStateNews';
+//import { useStateNews } from '../../State/useStateNews';
 
 //interface CardNewsProps {
 //    id: string,
@@ -14,12 +14,14 @@ import { useStateNews } from '../../State/useStateNews';
 //}
 
 export const CardNews = ({ id }: { id: string }) => {
-    const { setCurrentNewsId } = useStateNews();
+    //const { setCurrentNewsId } = useStateNews();
     const navigate = useNavigate();
 
     const handleClick = () => {
-        setCurrentNewsId(id)
-        navigate("/news");
+        
+        const data = {Id:id}
+        navigate("/news", {state:data});
+
     }
 
     return (
