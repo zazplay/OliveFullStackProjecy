@@ -17,6 +17,7 @@ const ListNewsForAdmin: FC = () => {
     return (
         <div className={styles.ListNewsForAdmin}>
            <AdminNewsComp
+            guidID='wigo3rhuogreogj3oinb'
             imageUrl="https://uk.in.ua/wp-content/uploads/2023/07/close-up-delicious_small.jpg"
             title="Top: Best Recipes with Olives"
             description="Olives today are already an absolutely familiar product in every home. Dishes with olives surprise with their variety: pizzas and all kinds of hot dishes, hot and cold appetizers, soups and, of course, salads."

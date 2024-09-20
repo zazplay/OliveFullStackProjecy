@@ -2,6 +2,7 @@ import React, { FC } from 'react';
 import styles from './AdminNewsComp.module.css';
 
 interface AdminNewsCompProps {
+  guidID: string;
   imageUrl: string;
   title: string;
   description: string;
@@ -11,6 +12,7 @@ interface AdminNewsCompProps {
 }
 
 const AdminNewsComp: FC<AdminNewsCompProps> = ({ 
+  guidID,
   imageUrl, 
   title, 
   description, 
