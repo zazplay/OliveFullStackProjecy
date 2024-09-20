@@ -9,17 +9,17 @@ interface News {
     imgSrc: string;
     source: string;
     createdAt: Date;
-    //createdAt: string;
 }
 
 interface ListCardNewsProps {
-    n: number,
-    arrayNews: News[]
+    start?:number,//з якого елементу починати
+    n: number,//кількість еелментів
+    arrayNews: News[]//колекція новин
 }
 
-export const ListCardNews: FC<ListCardNewsProps> = ({ arrayNews,n }) => {
+export const ListCardNews: FC<ListCardNewsProps> = ({ arrayNews,start=0,n }) => {
 
-    const newArr = arrayNews.slice(0, n);//получаем первые n елементов
+    const newArr = arrayNews.slice(start, n);//получаем первые n елементов
 
     const items: React.ReactNode[] = newArr.map((item) =>
         item &&

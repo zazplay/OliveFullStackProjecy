@@ -11,13 +11,14 @@ interface News {
     //createdAt: string;
 }
 interface HeaderListCardNewsProps {
+    start?:number,
     n: number,
     arrayNews: News[]
 }
 
 //контеинер с 3 карточками с права от большой на главной странице
-const HeaderListCardNews: FC<HeaderListCardNewsProps> = ({ n, arrayNews }) => {
-    const newArr = arrayNews.slice(0, n);//получаем первые n елементов
+const HeaderListCardNews: FC<HeaderListCardNewsProps> = ({start=0, n, arrayNews }) => {
+    const newArr = arrayNews.slice(start, n);//получаем первые n елементов
 
     const items: React.ReactNode[] = newArr.map((item) =>
         item &&

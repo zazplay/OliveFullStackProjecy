@@ -3,7 +3,6 @@ import styles from './CardNews.module.css';
 import FooterCardNews from '../FooterCardNews/FooterCardNews';
 //import imgPicture from "../../Img/img-academy-logo-400x356.jpg"
 import { useNavigate } from 'react-router-dom';
-//import { useStateNews } from '../../State/useStateNews';
 
 interface News {
     id: string;

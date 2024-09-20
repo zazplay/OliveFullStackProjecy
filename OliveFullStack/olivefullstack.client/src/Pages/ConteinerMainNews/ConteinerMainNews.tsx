@@ -4,7 +4,6 @@ import Header from './Header/Header';
 import '../../Components/App/App.css'
 import axios from 'axios';
 import { ListCardNews } from '../../Components/ListCardNews/ListCardNews';
-//interface ConteinerMainNewsProps {}
 interface News {
     id: string;
     title: string;
@@ -12,11 +11,10 @@ interface News {
     imgSrc: string;
     source: string;
     createdAt: Date;
-    //createdAt: string;
 }
 
 const ConteinerMainNews: FC = () => {
-    const [listNews, setListNews] = useState<News[]>([])
+    const [listNews, setListNews] = useState<News[]>([]);
 
     useEffect(() => {
 
@@ -60,8 +58,8 @@ const ConteinerMainNews: FC = () => {
             <hr className={styles.hr} />
             <div className="style-for-title-container">News</div>
             <div className={styles.BodyNews} >
-                <ListCardNews n={6} arrayNews={listNews} />
-                <ListCardNews n={6} arrayNews={listNews} />
+                <ListCardNews start={3} n={9} arrayNews={listNews} />
+                <ListCardNews start={9} n={15} arrayNews={listNews} />
             </div>
         </div>
     );
