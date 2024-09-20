@@ -1,1 +1,4 @@
-.ListNewsForAdmin {}
+.ListNewsForAdmin {
+    display: flex;
+    position: relative;
+}
