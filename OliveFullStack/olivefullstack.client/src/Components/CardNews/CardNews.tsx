@@ -32,7 +32,7 @@ export const CardNews: FC<ObjNews> = ({ obj }) => {
         <div className={styles.CardNews} onClick={handleClick} >
             <img className={styles.imgStyles} src={obj.imgSrc} />
             <div className={styles.ContainerInfo} >
-                <div className={styles.cardBody} ><h2>{obj.title}</h2></div>
+                <div className={styles.cardBody} >{obj.title}</div>
                 <FooterCardNews />
             </div>
         </div>

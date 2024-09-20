@@ -4,10 +4,10 @@ import logo from "../../Img/Pngtreenews label_8695965.png"
 //interface LogoProps {}
 
 const Logo: FC = () => (
-        <div>
+    <div className={ styles.Container} >
         <img className={styles.LogoStyle} src={logo} />
-            <div>TopNewsProger</div>
-        </div>
+        <div>TopNews</div>
+    </div>
 );
 
 export default Logo;
