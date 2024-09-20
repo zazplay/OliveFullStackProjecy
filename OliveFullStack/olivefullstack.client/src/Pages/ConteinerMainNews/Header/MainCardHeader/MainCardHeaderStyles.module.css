@@ -3,10 +3,16 @@
     grid-template-rows:1fr 1fr;
     min-width: 498px;
     text-align: left;
-    padding: 1em;
-    height: 350px;
+    /*padding: 0.5em;*/
+    height: 470px;
+    border:none;
 }
 
 .cardBody {
     padding: 0;
+}
+.Img {
+    height: 300px;
+    border-radius:30px;
+    
 }

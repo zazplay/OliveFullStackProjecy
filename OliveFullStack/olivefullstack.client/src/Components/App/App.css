@@ -21,3 +21,12 @@ th, td {
     width: 1000px;
     margin: 0 auto;
 }
+
+.style-for-title-container {
+    font-size:xx-large;
+    margin-top: 1em;
+    margin-bottom:1em;
+    text-align: left;
+    font-weight: 800;
+    font-family: sans-serif;
+}

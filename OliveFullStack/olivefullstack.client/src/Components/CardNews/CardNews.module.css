@@ -1,6 +1,6 @@
 .CardNews {
     width:470px;
-    height:105px;
+    height:150px;
     margin-bottom:1em;
     display:flex;
     flex-direction:row;
@@ -9,7 +9,7 @@
     text-align:left;
 }
 .ContainerInfo{
-    height:105px;
+    height:150px;
     display:flex;
     flex-direction:column;
     justify-content:space-between;
@@ -22,5 +22,5 @@
     width:200px;
     height:100%;
     object-fit:cover;
-    border-radius: 15px;
+    border-radius: 30px;
 }

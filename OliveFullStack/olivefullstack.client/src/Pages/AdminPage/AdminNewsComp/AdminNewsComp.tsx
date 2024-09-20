@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import { FC } from 'react';
 import styles from './AdminNewsComp.module.css';
 
 interface AdminNewsCompProps {
@@ -12,7 +12,7 @@ interface AdminNewsCompProps {
 }
 
 const AdminNewsComp: FC<AdminNewsCompProps> = ({ 
-  guidID,
+  //guidID,
   imageUrl, 
   title, 
   description, 
