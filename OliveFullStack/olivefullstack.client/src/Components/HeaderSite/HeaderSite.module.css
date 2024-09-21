@@ -2,6 +2,7 @@
     font-family:  sans-serif;
     width:1000px;
     margin:0 auto;
+    margin-top: -10px;
 }
 .no-margin-padding {
     margin: 0;
@@ -21,7 +22,7 @@
     font-weight: bold;
 }
 .navigation {
-    width:100%;
+    width:89%;
     display: flex;
     flex-direction: row;
     justify-content:space-between;
@@ -33,5 +34,5 @@
     font-weight: bold;
     position:absolute;
     top:15px;
-    right:50px;
+    right: 100px;
 }

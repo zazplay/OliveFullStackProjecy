@@ -4,8 +4,16 @@
     min-width: 498px;
     text-align: left;
     /*padding: 0.5em;*/
-    height: 470px;
+    height: 500px;
     border:none;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+
+}
+
+.mainCard:hover {
+    transform: scale(1.03);
+
 }
 
 .cardBody {

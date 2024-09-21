@@ -6,7 +6,6 @@ import Button from 'react-bootstrap/esm/Button';
 import "../../Components/App/App.css"
 import ListNewsForAdmin from './ListNewsForAdmin/ListNewsForAdmin';
 import axios from 'axios';
-//import axios from 'axios';
 
 interface News {
     id: string;
@@ -60,22 +59,39 @@ const AdminPage: FC = () => {
     }, [listNews]);
 
     //функция видалення новин
+
+    // (Витя добавил удаление потому что мне стало скучно :D )
+    
+
     const handleClick = async () => {
-        if (listNewsIdOnDelete === null) return;
+        if (listNewsIdOnDelete === null || listNewsIdOnDelete.length === 0) return;
         console.log("Delete button");
         console.log('listNewsIdOnDelete', listNewsIdOnDelete);
-        setReload(!reload);//перезавантазення списку новин
-
-        //try {
-
-        //    await axios.delete(`https://localhost:7142/PresentationNews/${listNewsIdOnDelete[0]?.id}`);
-        //    setReload(!reload);//перезавантазення списку новин
-        //}
-        //catch (err) {
-        //    console.log("err",err)
-        //}
-
-
+        
+        const token = localStorage.getItem('token');
+        console.log("handleLoad");
+    
+        try {
+            const response = await axios.delete("https://localhost:7142/PresentationNews/deleteByIds", {
+                headers: {
+                    'Authorization': `Bearer ${token}`,
+                    'Content-Type': 'application/json',
+                    'Accept': '*/*'
+                },
+                data: { ids: listNewsIdOnDelete }
+            });
+            
+            console.log("Response:", response);
+            setReload(!reload);
+            window.location.reload();
+             // перезагрузка списка новин
+        } catch (e) {
+            console.error("Error deleting news:", e);
+            if (axios.isAxiosError(e)) {
+                console.error("Response data:", e.response?.data);
+                console.error("Status:", e.response?.status);
+            }
+        }
     }
 
     return (

@@ -1,13 +1,21 @@
 .CardNews {
-    width:470px;
-    height:150px;
-    margin-bottom:1em;
-    display:flex;
-    flex-direction:row;
+    width: 470px;
+    height: 150px;
+    margin-bottom: 1em;
+    display: flex;
+    flex-direction: row;
     border: none;
-    position:relative;
-    text-align:left;
+    position: relative;
+    text-align: left;
+    transition: transform 0.3s ease;
+    cursor: pointer;
 }
+
+.CardNews:hover {
+    transform: scale(1.03);
+
+}
+
 .ContainerInfo{
     height:150px;
     display:flex;
