@@ -12,7 +12,6 @@ const FooterCardNews: FC<FooterCardNewsProps> = ({ date }) => {
     function dateString(date: Date) {
         const currentDate: Date = date;
         const formattedDate: string = format(currentDate, 'dd/MM/yyyy');
-        console.log("formDate", formattedDate);
         return formattedDate;
     }
 

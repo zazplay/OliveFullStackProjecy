@@ -10,7 +10,6 @@ interface News {
     imgSrc: string;
     source: string;
     createdAt: Date;
-    //createdAt: string;
 }
 
 interface TopNews {
@@ -23,9 +22,9 @@ const MainCardHeader: FC<TopNews> = ({ topNews }) => {
         <Card className={styles.mainCard} >
             <Card.Img className={ styles.Img} variant="top" src={topNews?.imgSrc} />
             <Card.Body className={styles.cardBody} >
-                <Card.Title>{topNews?.title}</Card.Title>
+                <Card.Title className={styles.cardTitle} >{topNews?.title}</Card.Title>
                 <Card.Text>
-                    <FooterMainCardHeader />
+                    <FooterMainCardHeader date={topNews?.createdAt} />
                 </Card.Text>
             </Card.Body>
         </Card>

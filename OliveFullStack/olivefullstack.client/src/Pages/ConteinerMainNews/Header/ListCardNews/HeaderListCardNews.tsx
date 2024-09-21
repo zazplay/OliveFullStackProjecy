@@ -8,7 +8,6 @@ interface News {
     imgSrc: string;
     source: string;
     createdAt: Date;
-    //createdAt: string;
 }
 interface HeaderListCardNewsProps {
     start?:number,
@@ -22,7 +21,7 @@ const HeaderListCardNews: FC<HeaderListCardNewsProps> = ({start=0, n, arrayNews 
 
     const items: React.ReactNode[] = newArr.map((item) =>
         item &&
-        <CardNews key={item.id} obj={item} />);//если елемент существует мапим его в карточку
+        <CardNews key={item.id} obj={item} listObj={arrayNews} />);//если елемент существует мапим его в карточку
 
     return <div className={styles.ListCardNews} >{items}</div>;
 };

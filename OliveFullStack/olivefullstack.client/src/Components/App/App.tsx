@@ -12,7 +12,6 @@ import ConteinerMainNews from '../../Pages/ConteinerMainNews/ConteinerMainNews';
 function App() {
 
     return (
-
         <div>
             <Router >
                 <HeaderSite />
@@ -28,7 +27,6 @@ function App() {
                 </Routes>
                 <Footer />
             </Router>
-
         </div>
     );
 }

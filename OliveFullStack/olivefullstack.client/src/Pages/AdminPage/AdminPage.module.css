@@ -17,3 +17,16 @@
     display: grid;
     grid-template-columns: 4fr 1fr 1fr 1fr 1fr;
 }
+
+.BtnDeleteStyle{
+    border:none;
+    background-color:white;
+    color:red;
+    padding:0;
+}
+
+.Publish{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}

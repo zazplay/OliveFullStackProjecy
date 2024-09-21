@@ -4,10 +4,13 @@
     bottom: 0;
     display: grid;
     grid-template-columns: 5fr 1fr;
-    padding-bottom:10px;
+    padding-bottom: 10px;
+    align-items: center;
 }
 
 .LogoAndTime {
-    display: flex;
-    flex-direction: row;
+    display: grid;
+    width: 220px;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
 }

@@ -23,7 +23,7 @@ export const ListCardNews: FC<ListCardNewsProps> = ({ arrayNews,start=0,n }) => 
 
     const items: React.ReactNode[] = newArr.map((item) =>
         item &&
-        <CardNews key={item.id} obj={item} />);
+        <CardNews key={item.id} obj={item} listObj={arrayNews} />);
 
     return <div className={styles.ListCardNews} >{items}</div>;
 

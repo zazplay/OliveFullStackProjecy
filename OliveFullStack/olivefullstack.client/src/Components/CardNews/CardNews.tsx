@@ -11,19 +11,19 @@ interface News {
     imgSrc: string;
     source: string;
     createdAt: Date;
-    //createdAt: string;
 }
 
 interface ObjNews {
-    obj: News
+    obj: News,
+    listObj: News[]
 }
-export const CardNews: FC<ObjNews> = ({ obj }) => {
+export const CardNews: FC<ObjNews> = ({ obj, listObj }) => {
 
     const navigate = useNavigate();
 
     const handleClick = () => {
 
-        const data = { Id: obj.id }
+        const data = { Id: obj.id, listObj }
         navigate("/news", {state:data});
 
     }
