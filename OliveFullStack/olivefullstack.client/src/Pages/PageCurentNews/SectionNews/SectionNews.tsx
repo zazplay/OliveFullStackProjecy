@@ -11,7 +11,7 @@ interface News {
     description: string;
     imgSrc: string;
     source: string;
-    createdAt: string;
+    createdAt: Date;
 }
 
 const SectionNews: FC = () => {
@@ -41,7 +41,7 @@ const SectionNews: FC = () => {
         }
 
         getNewsById();
-    },[Id])
+    },[Id,token])
 
 
         
@@ -49,10 +49,10 @@ const SectionNews: FC = () => {
         <Card className={styles.mainCard} >
             <Card.Img className={styles.Img} variant="top" src={currentNews?.imgSrc} />
             <Card.Body className={styles.cardBody} >
-                <Card.Title>{currentNews?.title} </Card.Title>
+                <Card.Title className={styles.cardTitle}>{currentNews?.title} </Card.Title>
                 <Card.Text>
                     {currentNews?.description}
-                    < FooterMainCardHeader />
+                    <FooterMainCardHeader date={currentNews?.createdAt}/>
                 </Card.Text>
             </Card.Body>
         </Card>
