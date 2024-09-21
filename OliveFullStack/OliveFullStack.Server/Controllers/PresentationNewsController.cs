@@ -99,5 +99,30 @@ namespace OliveFullStack.PresentationLayer.Controllers
                 return BadRequest(ex.Message);
             }
         }
+
+
+        [HttpDelete]
+        [Route("deleteByIds")]
+        [Authorize(Roles = "Admin")]
+        public async Task<IActionResult> DeleteNews([FromBody] DeleteNewsRequest request)
+        {
+            if (request?.ids == null || !request.ids.Any())
+            {
+                return BadRequest("The ids field is required and must not be empty.");
+            }
+
+            try
+            {
+                foreach (var item in request.ids)
+                {
+                    await _newsService.DeleteNews(item);
+                }
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
     }
 }
