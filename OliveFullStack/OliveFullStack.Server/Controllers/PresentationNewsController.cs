@@ -8,7 +8,6 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace OliveFullStack.PresentationLayer.Controllers
 {
-    //[Authorize]
     [ApiController]
     [Route("[controller]")]
     public class PresentationNewsController : Controller
@@ -22,9 +21,11 @@ namespace OliveFullStack.PresentationLayer.Controllers
             _mapper = mapper;
         }
 
-        // Доступ для ролей "user" и "admin"
+        /// <summary>
+        /// Get all the news from the database. Is available without authorization.
+        /// </summary>
+        /// <returns>Returns all news from the database </returns>
         [HttpGet]
-        //[Authorize(Roles = "User,Admin")]
         public async Task<IActionResult> GetAll()
         {
             var news = await _newsService.GetAllNews();
@@ -32,10 +33,13 @@ namespace OliveFullStack.PresentationLayer.Controllers
             return Ok(newsResponses);
         }
 
-        // Доступ только для администраторов
+        /// <summary>
+        /// Get news by id from the database. Is available without authorization.
+        /// </summary>
+        /// <param name="id">Id of the news you want to receive</param>
+        /// <returns>Returns news and status 200 if the news is found, if not found, returns status 404.</returns>
         [HttpGet]
         [Route("{id:Guid}")]
-        //[Authorize(Roles = "Admin")]
         public async Task<IActionResult> GetSingle([FromRoute] Guid id)
         {
             var news = await _newsService.GetNewsById(id);
@@ -48,6 +52,11 @@ namespace OliveFullStack.PresentationLayer.Controllers
         }
 
         // Доступ только для администраторов
+        /// <summary>
+        /// Adds news to the database. Available for users with the admin role.
+        /// </summary>
+        /// <param name="request">Accepts the AddNewsRequest object in the request body. It consists of Title, Description, ImgSrc, Source.</param>
+        /// <returns>Returns status 200 if the object is added or status 400 if not added.</returns>
         [HttpPost]
         [Authorize(Roles = "Admin")]
         public async Task<IActionResult> AddNews([FromBody] AddNewsRequest request)
@@ -65,6 +74,12 @@ namespace OliveFullStack.PresentationLayer.Controllers
         }
 
         // Доступ только для администраторов
+        /// <summary>
+        /// Edits the news in the database. Available for users with the admin role.
+        /// </summary>
+        /// <param name="id">Id of the news you want to edit.</param>
+        /// <param name="request">Accepts the UpdateNewsRequest object in the request body. It consists of Title, Description, ImgSrc, Source.  </param>
+        /// <returns>Returns status 200 if the object is added or status 400 if not added.</returns>
         [HttpPut]
         [Route("{id:Guid}")]
         [Authorize(Roles = "Admin")]
@@ -84,6 +99,11 @@ namespace OliveFullStack.PresentationLayer.Controllers
         }
 
         // Доступ только для администраторов
+        /// <summary>
+        /// Deletes a news item from the database by ID. Accepts the id in the request header. Available for users with the admin role.
+        /// </summary>
+        /// <param name="id">ID of the news item you want to delete.</param>
+        /// <returns>Returns status 200 if the object is added or status 400 if not added.</returns>
         [HttpDelete]
         [Route("{id:Guid}")]
         [Authorize(Roles = "Admin")]
@@ -100,13 +120,16 @@ namespace OliveFullStack.PresentationLayer.Controllers
             }
         }
 
-
+        /// <summary>
+        /// Accepts a list of news items to be deleted in the body of the request. Available for users with the admin role.
+        /// </summary>
+        /// <param name="request">accept DeleteNewsRequest object. It consists of a list of items.</param>
+        /// <returns>Returns status 200 if the object is added or status 400 if not added.</returns>
         [HttpDelete]
         [Route("deleteByIds")]
         [Authorize(Roles = "Admin")]
         public async Task<IActionResult> DeleteNews([FromBody] DeleteNewsRequest request)
         {
-
             if (request?.ids == null || !request.ids.Any())
             {
                 return BadRequest("The ids field is required and must not be empty.");
