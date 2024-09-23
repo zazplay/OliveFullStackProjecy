@@ -1,10 +1,11 @@
 .SectionNews {
+    font-size: 14px;
 }
 
 .mainCard {
     display:flex;
     flex-direction:column;
-    min-width: 498px;
+    min-width: 598px;
     text-align: left;
     padding: 1em;
     height: max-content;
@@ -17,7 +18,8 @@
 }
 
 .Img {
-    height:250px;
+    height:auto;
+    width: 550px;
     border-radius:30px;
 }
 

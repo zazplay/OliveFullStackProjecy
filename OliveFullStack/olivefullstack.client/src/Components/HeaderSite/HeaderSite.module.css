@@ -34,5 +34,28 @@
     font-weight: bold;
     position:absolute;
     top:15px;
-    right: 100px;
+    right: 120px;
+    color: #aab0bb;
+
+}
+
+.itemLinkAccount{
+    font-size: xx-large;
+    font-weight: bold;
+    color: #aab0bb;
+    display: flex;
+    
+}
+
+.gearIcon {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    cursor: pointer;
+    color: #333;
+    transition: color 0.3s ease;
+}
+
+.gearIcon:hover {
+    color: #666;
 }

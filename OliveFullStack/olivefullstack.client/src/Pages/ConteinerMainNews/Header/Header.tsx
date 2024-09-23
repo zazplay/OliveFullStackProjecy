@@ -18,15 +18,15 @@ interface ArrayNews {
     array: News[]
 }
 
-//шапка главной страници с новостями(там где одна большая новость и 3 маленьких)
-//принимает масив новостей и нередает дальше по компонентам
+//пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ(пїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ 3 пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ)
+//пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 const Header: FC<ArrayNews> = ({ array }) => {
 
     return (
         <>
             <h1 className={styles.h1} >Today in the <span className={styles.news} >news</span></h1>
             <Container className={styles.container} >
-                <MainCardHeader topNews={array[0]} />
+                <MainCardHeader topNews={array[array.length-2]} listObj={array} />
                 <Container>
                     <HeaderListCardNews n={3} arrayNews={array } />
                 </Container>
