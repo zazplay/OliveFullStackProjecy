@@ -18,9 +18,6 @@ interface TopNews {
     listObj: News[]
 }
 
-interface ObjNews {
-    
-}
 
 const MainCardHeader: FC<TopNews> = ({ topNews, listObj }) => {
 
