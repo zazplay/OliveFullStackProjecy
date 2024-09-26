@@ -7,6 +7,9 @@ using Ovile_DAL_Layer.Entities;
 namespace Ovile_DAL_Layer.EF
 
 {
+    /// <summary>
+    /// Контекст для бд
+    /// </summary>
     public class NewsContext : IdentityDbContext<IdentityUser>
     {
         public DbSet<News> News { get; set; }

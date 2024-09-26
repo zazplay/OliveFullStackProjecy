@@ -58,7 +58,15 @@ builder.Services.AddAuthentication(options =>
 
 
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+builder.Services.AddSwaggerGen(options =>
+{
+    var basePath = AppContext.BaseDirectory;
+
+    var xmlPath = Path.Combine(basePath, "OliveFullStack.PresentationLayer.xml");
+    options.IncludeXmlComments(xmlPath);
+});
+
+
 
 builder.Services.AddCors(option =>
     option.AddDefaultPolicy(
@@ -74,6 +82,34 @@ builder.Services.AddScoped<IUnitOfWork, UnitOfWorkEF>();
 builder.Services.AddScoped<INewsService, NewsService>();
 
 
+builder.Services.AddSwaggerGen(options =>
+{
+    var basePath = AppContext.BaseDirectory;
+
+    var xmlPath = Path.Combine(basePath, "OliveFullStack.PresentationLayer.xml");
+    options.IncludeXmlComments(xmlPath);
+});
+
+builder.Services.AddSwaggerGen(options =>
+{
+    options.SwaggerDoc("v1", new OpenApiInfo
+    {
+        Version = "v1",
+        Title = "News API",
+        Description = "ASP .NET Core Web API",
+        Contact = new OpenApiContact
+        {
+            Name = "Пример контакта",
+            Url = new Uri("https://example.com/contact")
+        },
+        License = new OpenApiLicense
+        {
+            Name = "Пример лицензии",
+            Url = new Uri("https://example.com/license")
+        }
+    });
+});
+
 builder.Services.AddSwaggerGen(c =>
 {
     c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
@@ -84,6 +120,8 @@ builder.Services.AddSwaggerGen(c =>
         Type = SecuritySchemeType.ApiKey,
         Scheme = "Bearer"
     });
+
+
 
     c.AddSecurityRequirement(new OpenApiSecurityRequirement()
     {
