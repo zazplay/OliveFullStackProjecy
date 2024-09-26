@@ -1,6 +1,8 @@
 ﻿namespace Ovile_BLL_Layer.Infrastructure.Exceptions
 {
-
+    /// <summary>
+    /// Новость не существует
+    /// </summary>
     public class NewsDoesNotExist : Exception
     {
         public NewsDoesNotExist(string id)

@@ -22,9 +22,11 @@ namespace OliveFullStack.PresentationLayer.Controllers
             _mapper = mapper;
         }
 
-        // Доступ для ролей "user" и "admin"
+        /// <summary>
+        /// Получить все новости (доступ для всех)
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
-        //[Authorize(Roles = "User,Admin")]
         public async Task<IActionResult> GetAll()
         {
             var news = await _newsService.GetAllNews();
@@ -32,7 +34,11 @@ namespace OliveFullStack.PresentationLayer.Controllers
             return Ok(newsResponses);
         }
 
-        // Доступ только для администраторов
+        /// <summary>
+        ///  Получение новости по айди (доступ для всех)
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpGet]
         [Route("{id:Guid}")]
         //[Authorize(Roles = "Admin")]
@@ -47,7 +53,11 @@ namespace OliveFullStack.PresentationLayer.Controllers
             return Ok(newsResponse);
         }
 
-        // Доступ только для администраторов
+        /// <summary>
+        /// Добавить новость (Только для администраторов)
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
         [HttpPost]
         [Authorize(Roles = "Admin")]
         public async Task<IActionResult> AddNews([FromBody] AddNewsRequest request)
@@ -64,7 +74,12 @@ namespace OliveFullStack.PresentationLayer.Controllers
             }
         }
 
-        // Доступ только для администраторов
+        /// <summary>
+        /// Обновить новость по айди (для админов)
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="request"></param>
+        /// <returns></returns>
         [HttpPut]
         [Route("{id:Guid}")]
         [Authorize(Roles = "Admin")]
@@ -83,7 +98,11 @@ namespace OliveFullStack.PresentationLayer.Controllers
             }
         }
 
-        // Доступ только для администраторов
+        /// <summary>
+        /// Удалить новсть по айди (для админов)
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpDelete]
         [Route("{id:Guid}")]
         [Authorize(Roles = "Admin")]
@@ -100,7 +119,11 @@ namespace OliveFullStack.PresentationLayer.Controllers
             }
         }
 
-
+        /// <summary>
+        /// Удалить несколько новостей (для админов)
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
         [HttpDelete]
         [Route("deleteByIds")]
         [Authorize(Roles = "Admin")]

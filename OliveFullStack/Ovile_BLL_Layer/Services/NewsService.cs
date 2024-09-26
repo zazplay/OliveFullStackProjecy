@@ -17,7 +17,10 @@ namespace Notes.BusinessLogicLayer.Services
             _mapper = mapper;
             _unitOfWork = unitOfWork;
         }
-
+        /// <summary>
+        /// Получить все нововсти
+        /// </summary>
+        /// <returns></returns>
         public async Task<IEnumerable<NewsDTO>> GetAllNews()
         {
             var news = await _unitOfWork
@@ -29,6 +32,11 @@ namespace Notes.BusinessLogicLayer.Services
             return newsDto;
         }
 
+        /// <summary>
+        /// Получить одну новость по айди
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public async Task<NewsDTO> GetNewsById(Guid id)
         {
             var news = await _unitOfWork
@@ -40,6 +48,11 @@ namespace Notes.BusinessLogicLayer.Services
             return newsDto;
         }
 
+        /// <summary>
+        /// Создать новость
+        /// </summary>
+        /// <param name="newNews"></param>
+        /// <returns></returns>
         public async Task<NewsDTO> CreateNews(NewsDTO newNews)
         {
             var news = _mapper.Map<News>(newNews);
@@ -52,6 +65,13 @@ namespace Notes.BusinessLogicLayer.Services
             return newNews;
         }
 
+
+        /// <summary>
+        /// Обновить новсти
+        /// </summary>
+        /// <param name="updatedNews"></param>
+        /// <returns></returns>
+        /// <exception cref="NewsDoesNotExist"></exception>
         public async Task<NewsDTO> UpdateNews(NewsDTO updatedNews)
         {
             var newsExists = await _unitOfWork
@@ -74,6 +94,14 @@ namespace Notes.BusinessLogicLayer.Services
             return updatedNews;
         }
 
+
+
+        /// <summary>
+        /// Удалить новость
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        /// <exception cref="NewsDoesNotExist"></exception>
         public async Task DeleteNews(Guid id)
         {
             var hashtagExists = await _unitOfWork

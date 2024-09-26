@@ -25,7 +25,11 @@ namespace OliveFullStack.PresentationLayer.Controllers
             _roleManager = roleManager;
             _configuration = configuration;
         }
-
+        /// <summary>
+        /// Авторизация пользлователя и получение JWT токена
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
         [HttpPost]
         [Route("login")]
         public async Task<IActionResult> Login([FromBody] LoginModel model)
@@ -57,6 +61,11 @@ namespace OliveFullStack.PresentationLayer.Controllers
             return Unauthorized();
         }
 
+        /// <summary>
+        /// Регистрация пользователя
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
         [HttpPost]
         [Route("register")]
         public async Task<IActionResult> Register([FromBody] RegisterModel model)
@@ -78,6 +87,11 @@ namespace OliveFullStack.PresentationLayer.Controllers
             return Ok(new Response { Status = "Success", Message = "User created successfully!" });
         }
 
+        /// <summary>
+        /// Регистрация администратора
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
         [HttpPost]
         [Route("register-admin")]
         public async Task<IActionResult> RegisterAdmin([FromBody] RegisterModel model)
@@ -112,6 +126,11 @@ namespace OliveFullStack.PresentationLayer.Controllers
             return Ok(new Response { Status = "Success", Message = "User created successfully!" });
         }
 
+        /// <summary>
+        /// Генерация токена (на 3 часа)
+        /// </summary>
+        /// <param name="authClaims"></param>
+        /// <returns></returns>
         private JwtSecurityToken GetToken(List<Claim> authClaims)
         {
             var authSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["JWT:Secret"]));

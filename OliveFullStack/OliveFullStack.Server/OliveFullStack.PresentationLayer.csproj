@@ -7,6 +7,8 @@
     <SpaRoot>..\olivefullstack.client</SpaRoot>
     <SpaProxyLaunchCommand>npm run dev</SpaProxyLaunchCommand>
     <SpaProxyServerUrl>https://localhost:5173</SpaProxyServerUrl>
+    <GenerateDocumentationFile>True</GenerateDocumentationFile>
+    <DocumentationFile>C:\Users\Виктор\Documents\OliveFullStackProjecy\OliveFullStack\OliveFullStack.Server\obj\Debug\net8.0\OliveFullStack.PresentationLayer.xml</DocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>
@@ -26,7 +28,7 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.8.0" />
   </ItemGroup>
 
   <ItemGroup>
