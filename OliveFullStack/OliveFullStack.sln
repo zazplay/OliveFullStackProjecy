@@ -14,6 +14,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ovile_DAL_Layer", "Ovile_DA
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ovile_BLL_Layer", "Ovile_BLL_Layer\Ovile_BLL_Layer.csproj", "{695E5F95-586E-49B6-BB99-23F24EC93679}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PresentationNewsController_Testing", "PresentationNewsController_Testing\PresentationNewsController_Testing.csproj", "{338BE9F8-722E-438F-99AE-E5EB4CAAFFE9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -38,6 +40,10 @@ Global
 		{695E5F95-586E-49B6-BB99-23F24EC93679}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{695E5F95-586E-49B6-BB99-23F24EC93679}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{695E5F95-586E-49B6-BB99-23F24EC93679}.Release|Any CPU.Build.0 = Release|Any CPU
+		{338BE9F8-722E-438F-99AE-E5EB4CAAFFE9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{338BE9F8-722E-438F-99AE-E5EB4CAAFFE9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{338BE9F8-722E-438F-99AE-E5EB4CAAFFE9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{338BE9F8-722E-438F-99AE-E5EB4CAAFFE9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
