@@ -5,8 +5,9 @@ import Reference from './Reference/Reference';
 const Footer: FC = () => (
     <div className={styles.Footer}>
         <Reference />
-        <div>
-          Все права у енота
+        <div style={{ color: "white" }} >&#169;TopNewProger</div>
+        <div style={{ color: "white",  }} >
+           Все права у енота
         </div>
   </div>
 );

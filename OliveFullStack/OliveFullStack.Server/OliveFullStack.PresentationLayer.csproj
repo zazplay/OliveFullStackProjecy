@@ -8,7 +8,7 @@
     <SpaProxyLaunchCommand>npm run dev</SpaProxyLaunchCommand>
     <SpaProxyServerUrl>https://localhost:5173</SpaProxyServerUrl>
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
-    <DocumentationFile>C:\Users\Виктор\Documents\OliveFullStackProjecy\OliveFullStack\OliveFullStack.Server\obj\Debug\net8.0\OliveFullStack.PresentationLayer.xml</DocumentationFile>
+    <DocumentationFile>obj\Debug\net8.0\OliveFullStack.PresentationLayer.xml</DocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>
