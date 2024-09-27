@@ -1,14 +1,10 @@
 ﻿using AutoMapper;
-using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 using Moq;
 using OliveFullStack.PresentationLayer.Controllers;
 using OliveFullStack.PresentationLayer.Models.Responses;
 using Ovile_BLL_Layer.DTO;
 using Ovile_BLL_Layer.Interfaces;
-using Ovile_DAL_Layer.Entities;
-using System.Collections;
-using static Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary;
 
 namespace PresentationNewsController_Testing
 {
