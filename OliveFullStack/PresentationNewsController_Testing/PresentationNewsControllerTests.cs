@@ -309,7 +309,7 @@ namespace PresentationNewsController_Testing
             Assert.Equal($"News with ID {id} does not exist.", badRequestResult.Value);
         }
 
-
+        //DeleteNews - return ok
         [Fact]
         public async Task DeleteNews_ReturnsOk_WhenNewsIsDeleted()
         {
@@ -325,6 +325,7 @@ namespace PresentationNewsController_Testing
             Assert.Equal(200, okResult.StatusCode);
         }
 
+        //DeleteNews - return badRequest
         [Fact]
         public async Task DeleteNews_ReturnsBadRequest_WhenExceptionThrown()
         {
@@ -340,6 +341,7 @@ namespace PresentationNewsController_Testing
             Assert.Equal("Test exception", badRequestResult.Value);
         }
 
+        //DeleteNews - return exception
         [Fact]
         public async Task DeleteNews_ThrowsNewsDoesNotExistException_WhenNewsDoesNotExist()
         {
@@ -356,7 +358,72 @@ namespace PresentationNewsController_Testing
             var badRequestResult = Assert.IsType<BadRequestObjectResult>(result);
             Assert.Equal($"News with ID {newsId} does not exist.", badRequestResult.Value);
         }
+
+        [Fact]
+        public async Task DeleteNewsList_ReturnsBadRequest_WhenIdsAreNull()
+        {
+            // Arrange
+            var request = new DeleteNewsRequest { ids = null };
+
+            // Act
+            var result = await _controller.DeleteNews(request);
+
+            // Assert
+            var badRequestResult = Assert.IsType<BadRequestObjectResult>(result);
+            Assert.Equal("The ids field is required and must not be empty.", badRequestResult.Value);
+        }
+
+        [Fact]
+        public async Task DeleteNewsList_ReturnsBadRequest_WhenIdsAreEmpty()
+        {
+            // Arrange
+            var request = new DeleteNewsRequest { ids = new List<Guid>() };
+
+            // Act
+            var result = await _controller.DeleteNews(request);
+
+            // Assert
+            var badRequestResult = Assert.IsType<BadRequestObjectResult>(result);
+            Assert.Equal("The ids field is required and must not be empty.", badRequestResult.Value);
+        }
+
+        [Fact]
+        public async Task DeleteNewsList_ReturnsOk_WhenNewsDeletedSuccessfully()
+        {
+            // Arrange
+            var ids = new List<Guid> { Guid.NewGuid(), Guid.NewGuid() };
+            var request = new DeleteNewsRequest { ids = ids };
+
+            // Mocking successful deletion
+            _mockNewsService.Setup(s => s.DeleteNews(It.IsAny<Guid>())).Returns(Task.CompletedTask);
+
+            // Act
+            var result = await _controller.DeleteNews(request);
+
+            // Assert
+            var okResult = Assert.IsType<OkResult>(result);
+            _mockNewsService.Verify(s => s.DeleteNews(It.IsAny<Guid>()), Times.Exactly(ids.Count));
+        }
+
+        [Fact]
+        public async Task DeleteNewsList_ReturnsBadRequest_WhenExceptionThrown()
+        {
+            // Arrange
+            var ids = new List<Guid> { Guid.NewGuid() };
+            var request = new DeleteNewsRequest { ids = ids };
+
+            _mockNewsService.Setup(s => s.DeleteNews(It.IsAny<Guid>()))
+                .ThrowsAsync(new Exception("Test exception"));
+
+            // Act
+            var result = await _controller.DeleteNews(request);
+
+            // Assert
+            var badRequestResult = Assert.IsType<BadRequestObjectResult>(result);
+            Assert.Equal("Test exception", badRequestResult.Value);
+        }
     }
+
 }
 
 
