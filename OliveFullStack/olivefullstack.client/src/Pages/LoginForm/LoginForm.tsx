@@ -1,7 +1,3 @@
-
-
-
-
 import React, { FC, useState, useEffect } from 'react';
 import { Form, Button, Nav } from 'react-bootstrap';
 import axios from 'axios';
@@ -11,14 +7,13 @@ import { jwtDecode } from "jwt-decode";
 import Swal from 'sweetalert2'; // Add SweetAlert for animated dialogs
 
 interface JwtPayload {
-  [key: string]: any;
+    [key: string]: unknown;
   "http://schemas.microsoft.com/ws/2008/06/identity/claims/role"?: string[];
 }
 
 const LoginForm: FC = () => {
     const [login, setLogin] = useState<string>('');
     const [pass, setPass] = useState<string>('');
-    const [status, setStatus] = useState("");
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -106,7 +101,7 @@ const LoginForm: FC = () => {
 
     return (
         <div className="width-main-container">
-            <div className="status-note-style">{status}</div>
+            <div className="status-note-style"></div>
             <Form className={styles.Form} onSubmit={handleOnSubmit}>
                 <Form.Group className="mb-3" controlId="formBasicLogin">
                     <Form.Label className={styles.Label}>Username</Form.Label>
@@ -127,8 +122,8 @@ const LoginForm: FC = () => {
                     />
                 </Form.Group>
                 <div className={styles.ContainerSubmitRegistration}>
-                    <Button variant="primary" type="submit" disabled={status === "Authorizing..."}>
-                        {status === "Authorizing..." ? "Authorizing..." : "Login"}
+                    <Button variant="primary" type="submit" >
+                        Enter
                     </Button>
 <Nav.Link href="registation" className={styles.LinkRegistr}>Registration</Nav.Link>
                 </div>

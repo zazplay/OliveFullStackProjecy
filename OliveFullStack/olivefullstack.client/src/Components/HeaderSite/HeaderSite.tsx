@@ -1,4 +1,4 @@
-import { FC, useState, useEffect } from 'react';
+import { FC } from 'react';
 import globe from "../../Img/globe-grid-svgrepo-com.svg";
 import item from "./HeaderSite.module.css";
 import { Nav, Navbar } from 'react-bootstrap';
@@ -7,13 +7,13 @@ import { faUser, faCog } from '@fortawesome/free-solid-svg-icons';
 import { useNavigate } from 'react-router-dom';
 
 const HeaderSite: FC = () => {
-    const [isAdmin, setIsAdmin] = useState<boolean>(false);
+    //const [isAdmin, setIsAdmin] = useState<boolean>(false);
     const navigate = useNavigate();
 
-    useEffect(() => {
-        const adminStatus = localStorage.getItem('isAdmin');
-        setIsAdmin(adminStatus === 'true');
-    }, []);
+    //useEffect(() => {
+    //    const adminStatus = localStorage.getItem('isAdmin');
+    //    setIsAdmin(adminStatus === 'true');
+    //}, []);
 
     const handleAdminClick = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
         event.preventDefault();

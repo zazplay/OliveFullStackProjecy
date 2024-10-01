@@ -6,7 +6,7 @@
     public class NewsDoesNotExist : Exception
     {
         public NewsDoesNotExist(string id)
-        : base($"News with id ${id} does not exist.")
+        : base($"News with ID {id} does not exist.")
         { }
     }
 
