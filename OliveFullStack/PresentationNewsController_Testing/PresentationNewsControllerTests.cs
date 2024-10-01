@@ -6,6 +6,7 @@ using OliveFullStack.PresentationLayer.Controllers;
 using OliveFullStack.PresentationLayer.Models.Requests;
 using OliveFullStack.PresentationLayer.Models.Responses;
 using Ovile_BLL_Layer.DTO;
+using Ovile_BLL_Layer.Infrastructure.Exceptions;
 using Ovile_BLL_Layer.Interfaces;
 using Ovile_DAL_Layer.Entities;
 
@@ -166,7 +167,7 @@ namespace PresentationNewsController_Testing
 
             var result = await _controller.AddNews(addNewsRequest);
 
-            var okResult= Assert.IsType<OkObjectResult>(result);
+            var okResult = Assert.IsType<OkObjectResult>(result);
             var returnValue = Assert.IsType<NewsDTO?>(okResult.Value);
             _mockMapper.Verify(service => service.Map<NewsDTO>(addNewsRequest), Times.Once);
             _mockNewsService.Verify(service => service.CreateNews(newsDTO), Times.Once);
@@ -202,7 +203,111 @@ namespace PresentationNewsController_Testing
             var badRequestResult = Assert.IsType<BadRequestObjectResult>(result);
             Assert.Equal("Test exception", badRequestResult.Value);
         }
+
+        [Fact]
+        public async Task UpdateNews_ReturnsOkResult_WhenNewsUpdated()
+        {
+            // Arrange
+            var id = Guid.NewGuid();
+
+            var request = new UpdateNewsRequest
+            {
+                Title = "AddNewsRequest Title",
+                Description = "AddNewsRequest Description",
+                ImgSrc = "AddNewsRequest img",
+                Source = "Internet"
+            };
+            var newsDto = new NewsDTO
+            {
+                Title = "NewsDTO Title",
+                Description = "NewsDTO Description",
+                ImgSrc = "NewsDTO img",
+                Source = "Internet"
+            };
+            var updatedNews = new NewsDTO
+            {
+                Title = "updatedNews Title",
+                Description = "updatedNews Description",
+                ImgSrc = "updatedNews img",
+                Source = "Internet"
+            };
+
+            _mockMapper.Setup(m => m.Map<NewsDTO>(request)).Returns(newsDto);
+            _mockNewsService.Setup(s => s.UpdateNews(newsDto)).ReturnsAsync(updatedNews);
+
+            // Act
+            var result = await _controller.UpdateNews(id, request);
+
+            // Assert
+            var okResult = Assert.IsType<OkObjectResult>(result);
+            var returnedNews = Assert.IsType<NewsDTO>(okResult.Value);
+            Assert.Equal(updatedNews.Id, returnedNews.Id);
+            Assert.Equal(updatedNews.Title, returnedNews.Title);
+        }
+
+        [Fact]
+        public async Task UpdateNews_ReturnsBadRequest_WhenExceptionThrown()
+        {
+            // Arrange
+            var id = Guid.NewGuid();
+            var request = new UpdateNewsRequest
+            {
+                Title = "AddNewsRequest Title",
+                Description = "AddNewsRequest Description",
+                ImgSrc = "AddNewsRequest img",
+                Source = "Internet"
+            };
+            var newsDto = new NewsDTO
+            {
+                Title = "NewsDTO Title",
+                Description = "NewsDTO Description",
+                ImgSrc = "NewsDTO img",
+                Source = "Internet"
+            };
+
+            _mockMapper.Setup(m => m.Map<NewsDTO>(request)).Returns(newsDto);
+            _mockNewsService.Setup(s => s.UpdateNews(newsDto)).ThrowsAsync(new Exception("Test exception"));
+
+            // Act
+            var result = await _controller.UpdateNews(id, request);
+
+            // Assert
+            var badRequestResult = Assert.IsType<BadRequestObjectResult>(result);
+            Assert.Equal("Test exception", badRequestResult.Value);
+        }
+
+        [Fact]
+        public async Task UpdateNews_ReturnsBadRequest_WhenNewsDoesNotExist()
+        {
+            // Arrange
+            var id = Guid.NewGuid();
+            var request = new UpdateNewsRequest
+            {
+                Title = "AddNewsRequest Title",
+                Description = "AddNewsRequest Description",
+                ImgSrc = "AddNewsRequest img",
+                Source = "Internet"
+            };
+            var newsDto = new NewsDTO
+            {
+                Title = "NewsDTO Title",
+                Description = "NewsDTO Description",
+                ImgSrc = "NewsDTO img",
+                Source = "Internet"
+            };
+            _mockMapper.Setup(m => m.Map<NewsDTO>(request)).Returns(newsDto);
+            _mockNewsService.Setup(s => s.UpdateNews(newsDto)).ThrowsAsync(new NewsDoesNotExist(id.ToString()));
+
+            // Act
+            var result = await _controller.UpdateNews(id, request);
+
+            // Assert
+            var badRequestResult = Assert.IsType<BadRequestObjectResult>(result);
+            Assert.Equal($"News with ID {id} does not exist.", badRequestResult.Value);
+        }
     }
+
+
 }
 
 
