@@ -204,6 +204,7 @@ namespace PresentationNewsController_Testing
             Assert.Equal("Test exception", badRequestResult.Value);
         }
 
+        // UpdateNews - returns ok
         [Fact]
         public async Task UpdateNews_ReturnsOkResult_WhenNewsUpdated()
         {
@@ -245,6 +246,7 @@ namespace PresentationNewsController_Testing
             Assert.Equal(updatedNews.Title, returnedNews.Title);
         }
 
+        //UpdateNews - returns badRequest exception
         [Fact]
         public async Task UpdateNews_ReturnsBadRequest_WhenExceptionThrown()
         {
@@ -276,6 +278,7 @@ namespace PresentationNewsController_Testing
             Assert.Equal("Test exception", badRequestResult.Value);
         }
 
+        //UpdateNews - returns badRequest
         [Fact]
         public async Task UpdateNews_ReturnsBadRequest_WhenNewsDoesNotExist()
         {
@@ -305,10 +308,58 @@ namespace PresentationNewsController_Testing
             var badRequestResult = Assert.IsType<BadRequestObjectResult>(result);
             Assert.Equal($"News with ID {id} does not exist.", badRequestResult.Value);
         }
+
+
+        [Fact]
+        public async Task DeleteNews_ReturnsOk_WhenNewsIsDeleted()
+        {
+            // Arrange
+            var newsId = Guid.NewGuid();
+            _mockNewsService.Setup(s => s.DeleteNews(newsId)).Returns(Task.CompletedTask);
+
+            // Act
+            var result = await _controller.DeleteNews(newsId);
+
+            // Assert
+            var okResult = Assert.IsType<OkResult>(result);
+            Assert.Equal(200, okResult.StatusCode);
+        }
+
+        [Fact]
+        public async Task DeleteNews_ReturnsBadRequest_WhenExceptionThrown()
+        {
+            // Arrange
+            var newsId = Guid.NewGuid();
+            _mockNewsService.Setup(s => s.DeleteNews(newsId)).ThrowsAsync(new Exception("Test exception"));
+
+            // Act
+            var result = await _controller.DeleteNews(newsId);
+
+            // Assert
+            var badRequestResult = Assert.IsType<BadRequestObjectResult>(result);
+            Assert.Equal("Test exception", badRequestResult.Value);
+        }
+
+        [Fact]
+        public async Task DeleteNews_ThrowsNewsDoesNotExistException_WhenNewsDoesNotExist()
+        {
+            // Arrange
+            var newsId = Guid.NewGuid();
+            _mockNewsService
+               .Setup(s => s.DeleteNews(newsId))
+                .ThrowsAsync(new NewsDoesNotExist(newsId.ToString()));
+
+            // Act
+            var result = await _controller.DeleteNews(newsId);
+
+            // Assert
+            var badRequestResult = Assert.IsType<BadRequestObjectResult>(result);
+            Assert.Equal($"News with ID {newsId} does not exist.", badRequestResult.Value);
+        }
     }
-
-
 }
+
+
 
 
 
