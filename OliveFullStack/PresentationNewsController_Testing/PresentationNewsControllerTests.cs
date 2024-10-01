@@ -8,7 +8,6 @@ using OliveFullStack.PresentationLayer.Models.Responses;
 using Ovile_BLL_Layer.DTO;
 using Ovile_BLL_Layer.Infrastructure.Exceptions;
 using Ovile_BLL_Layer.Interfaces;
-using Ovile_DAL_Layer.Entities;
 
 namespace PresentationNewsController_Testing
 {
