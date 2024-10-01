@@ -41,7 +41,6 @@ namespace OliveFullStack.PresentationLayer.Controllers
         /// <returns></returns>
         [HttpGet]
         [Route("{id:Guid}")]
-        //[Authorize(Roles = "Admin")]
         public async Task<IActionResult> GetSingle([FromRoute] Guid id)
         {
             var news = await _newsService.GetNewsById(id);
