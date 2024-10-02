@@ -7,6 +7,7 @@ using OliveFullStack.PresentationLayer.Models.AuthorizationModels;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Routing;
+using Microsoft.AspNetCore.Http;
 
 namespace AuthenticateControllerTests
 {
@@ -95,11 +96,15 @@ namespace AuthenticateControllerTests
                 Mock.Of<IUserStore<IdentityUser>>(), null, null, null, null, null, null, null, null);
             _roleManagerMock = new Mock<RoleManager<IdentityRole>>(
                 Mock.Of<IRoleStore<IdentityRole>>(), null, null, null, null);
+
+            // Setup configuration with JWT settings
             _configurationMock = new Mock<IConfiguration>();
+            _configurationMock.Setup(x => x["JWT:Secret"]).Returns("your-very-long-secret-key-here-at-least-16-characters");
+            _configurationMock.Setup(x => x["JWT:ValidIssuer"]).Returns("test-issuer");
+            _configurationMock.Setup(x => x["JWT:ValidAudience"]).Returns("test-audience");
 
             _controller = new AuthenticateController(_userManagerMock.Object, _roleManagerMock.Object, _configurationMock.Object);
         }
-
         // Тест на тип запроса для Login
 
         [Fact]
@@ -133,7 +138,7 @@ namespace AuthenticateControllerTests
         {
             var result = await _controller.Login(null);
 
-            Assert.IsType<BadRequestResult>(result);
+            Assert.Equal(StatusCodes.Status400BadRequest, (result as ObjectResult)?.StatusCode);
         }
 
         // Тест на тип запроса для Register
@@ -164,7 +169,7 @@ namespace AuthenticateControllerTests
         {
             var result = await _controller.Register(null);
 
-            Assert.IsType<BadRequestResult>(result);
+            Assert.Equal(StatusCodes.Status400BadRequest, (result as ObjectResult)?.StatusCode);
         }
 
         [Fact]
@@ -196,7 +201,7 @@ namespace AuthenticateControllerTests
         {
             var result = await _controller.RegisterAdmin(null);
 
-            Assert.IsType<BadRequestResult>(result);
+            Assert.Equal(StatusCodes.Status400BadRequest, (result as ObjectResult)?.StatusCode);
         }
     }
 }

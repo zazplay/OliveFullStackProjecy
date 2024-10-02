@@ -9,7 +9,7 @@
     <SpaProxyServerUrl>https://localhost:5173</SpaProxyServerUrl>
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
 
-    <DocumentationFile>C:\Users\38066\Documents\GitHub\OliveFullStackProjecy\OliveFullStack\OliveFullStack.Server\obj\Debug\net8.0\OliveFullStack.PresentationLayer.xml</DocumentationFile>
+    <DocumentationFile></DocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>
