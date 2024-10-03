@@ -1,4 +1,5 @@
-﻿
+﻿using System;
+
 namespace Ovile_BLL_Layer.DTO
 {
     public class NewsDTO
@@ -9,5 +10,7 @@ namespace Ovile_BLL_Layer.DTO
         public string ImgSrc { get; set; }
         public string Source { get; set; }
         public DateTime CreatedAt { get; set; }
+        public Guid? CategoryId { get; set; }
+        public string? CategoryName { get; set; } 
     }
 }

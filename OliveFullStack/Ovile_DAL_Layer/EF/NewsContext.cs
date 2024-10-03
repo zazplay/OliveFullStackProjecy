@@ -14,7 +14,7 @@ namespace Ovile_DAL_Layer.EF
     {
         public DbSet<News> News { get; set; }
 
-      
+        public DbSet<Category> Categories { get; set; }
 
         public NewsContext(DbContextOptions<NewsContext> options) : base(options)
         { }

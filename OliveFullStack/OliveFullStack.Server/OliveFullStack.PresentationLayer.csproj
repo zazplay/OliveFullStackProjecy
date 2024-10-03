@@ -41,4 +41,8 @@
     <ProjectReference Include="..\Ovile_BLL_Layer\Ovile_BLL_Layer.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Migrations\" />
+  </ItemGroup>
+
 </Project>

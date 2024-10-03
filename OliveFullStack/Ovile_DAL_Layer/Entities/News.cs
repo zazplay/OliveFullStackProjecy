@@ -20,5 +20,8 @@ namespace Ovile_DAL_Layer.Entities
 
         public DateTime CreatedAt { get; set; }
 
+        public Guid? CategoryId { get; set; }
+
+        public Category? Category { get; set; }  
     }
 }

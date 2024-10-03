@@ -81,7 +81,6 @@ namespace OliveFullStack.PresentationLayer.Controllers
             var userExists = await _userManager.FindByNameAsync(model.Username);
             if (userExists != null)
                 return StatusCode(StatusCodes.Status500InternalServerError, new Response { Status = "Error", Message = "User already exists!" });
-
             IdentityUser user = new()
             {
                 Email = model.Email,
@@ -100,6 +99,7 @@ namespace OliveFullStack.PresentationLayer.Controllers
         /// </summary>
         /// <param name="model"></param>
         /// <returns></returns>
+        
         [HttpPost]
         [Route("register-admin")]
         public async Task<IActionResult> RegisterAdmin([FromBody] RegisterModel model)
