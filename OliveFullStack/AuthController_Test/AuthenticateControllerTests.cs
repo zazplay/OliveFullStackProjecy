@@ -7,7 +7,10 @@ using OliveFullStack.PresentationLayer.Models.AuthorizationModels;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Routing;
+<<<<<<< HEAD
 using Microsoft.AspNetCore.Http;
+=======
+>>>>>>> parent of ce0661b (Merge pull request #10 from zazplay/DmitriyBranch)
 
 namespace AuthenticateControllerTests
 {
@@ -96,6 +99,7 @@ namespace AuthenticateControllerTests
                 Mock.Of<IUserStore<IdentityUser>>(), null, null, null, null, null, null, null, null);
             _roleManagerMock = new Mock<RoleManager<IdentityRole>>(
                 Mock.Of<IRoleStore<IdentityRole>>(), null, null, null, null);
+<<<<<<< HEAD
 
             // Setup configuration with JWT settings
             _configurationMock = new Mock<IConfiguration>();
@@ -105,6 +109,13 @@ namespace AuthenticateControllerTests
 
             _controller = new AuthenticateController(_userManagerMock.Object, _roleManagerMock.Object, _configurationMock.Object);
         }
+=======
+            _configurationMock = new Mock<IConfiguration>();
+
+            _controller = new AuthenticateController(_userManagerMock.Object, _roleManagerMock.Object, _configurationMock.Object);
+        }
+
+>>>>>>> parent of ce0661b (Merge pull request #10 from zazplay/DmitriyBranch)
         // Тест на тип запроса для Login
 
         [Fact]
@@ -138,7 +149,11 @@ namespace AuthenticateControllerTests
         {
             var result = await _controller.Login(null);
 
+<<<<<<< HEAD
             Assert.Equal(StatusCodes.Status400BadRequest, (result as ObjectResult)?.StatusCode);
+=======
+            Assert.IsType<BadRequestResult>(result);
+>>>>>>> parent of ce0661b (Merge pull request #10 from zazplay/DmitriyBranch)
         }
 
         // Тест на тип запроса для Register
@@ -169,7 +184,11 @@ namespace AuthenticateControllerTests
         {
             var result = await _controller.Register(null);
 
+<<<<<<< HEAD
             Assert.Equal(StatusCodes.Status400BadRequest, (result as ObjectResult)?.StatusCode);
+=======
+            Assert.IsType<BadRequestResult>(result);
+>>>>>>> parent of ce0661b (Merge pull request #10 from zazplay/DmitriyBranch)
         }
 
         [Fact]
@@ -201,7 +220,11 @@ namespace AuthenticateControllerTests
         {
             var result = await _controller.RegisterAdmin(null);
 
+<<<<<<< HEAD
             Assert.Equal(StatusCodes.Status400BadRequest, (result as ObjectResult)?.StatusCode);
+=======
+            Assert.IsType<BadRequestResult>(result);
+>>>>>>> parent of ce0661b (Merge pull request #10 from zazplay/DmitriyBranch)
         }
     }
 }

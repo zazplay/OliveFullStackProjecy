@@ -9,7 +9,11 @@
     <SpaProxyServerUrl>https://localhost:5173</SpaProxyServerUrl>
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
 
+<<<<<<< HEAD
     <DocumentationFile></DocumentationFile>
+=======
+    <DocumentationFile>C:\Users\38066\Documents\GitHub\OliveFullStackProjecy\OliveFullStack\OliveFullStack.Server\obj\Debug\net8.0\OliveFullStack.PresentationLayer.xml</DocumentationFile>
+>>>>>>> parent of ce0661b (Merge pull request #10 from zazplay/DmitriyBranch)
   </PropertyGroup>
 
   <ItemGroup>

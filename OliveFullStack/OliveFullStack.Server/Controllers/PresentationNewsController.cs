@@ -28,6 +28,13 @@ namespace OliveFullStack.PresentationLayer.Controllers
             _mapper = mapper;
         }
 
+        public PresentationNewsController(INewsService newsService, IMapper mapper)
+        {
+            _newsService = newsService;
+           
+            _mapper = mapper;
+        }
+
         /// <summary>
         /// Получить все новости (доступ для всех)
         /// </summary>
