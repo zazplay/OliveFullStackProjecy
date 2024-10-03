@@ -9,25 +9,29 @@ const AddNewsForm: FC = () => {
     const [imgRef, setImgRef] = useState('');
     const [source, setSource] = useState('');
     const [selectedOption, setSelectedOption] = useState<string>('');
-
+    //Додавання заголовку
     const handleTitle = (event: React.ChangeEvent<HTMLInputElement>) => {
         setTitle(event.target.value);
     }
+    //Додавання тексту новини
     const handleDescription = (event: React.ChangeEvent<HTMLInputElement>) => {
         setDesc(event.target.value);
     }
+    //Додавання зображення
     const handleImg = (event: React.ChangeEvent<HTMLInputElement>) => {
         setImgRef(event.target.value);
     }
+    //Додавання істочника
     const handleSource = (event: React.ChangeEvent<HTMLInputElement>) => {
         setSource(event.target.value);
     }
 
+    //Відправка новини на сервер
     const handleOnSubmit = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
 
         const token = localStorage.getItem('token');
-
+        
         if (!title || !desc || !imgRef || !source) {
             console.log("title", title);
             return;
@@ -55,12 +59,9 @@ const AddNewsForm: FC = () => {
             console.log(err);
         }
 
-
-
-
     }
 
-
+    //Обробник вибору категорії
     const handleSelectChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
         console.log(selectedOption);
         setTimeout(() => setSelectedOption(event.target.value),500);

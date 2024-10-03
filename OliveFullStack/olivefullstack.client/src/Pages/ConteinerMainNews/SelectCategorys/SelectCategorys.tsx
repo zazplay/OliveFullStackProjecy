@@ -4,6 +4,7 @@ import Form from 'react-bootstrap/esm/Form';
 
 //interface SelectCategorysProps {}
 
+// Список категорій
 const SelectCategorys: FC = () => (
     <div className={styles.SelectCategorys}>
         <Form.Select aria-label="Default select example" size="sm" className="w-25">
