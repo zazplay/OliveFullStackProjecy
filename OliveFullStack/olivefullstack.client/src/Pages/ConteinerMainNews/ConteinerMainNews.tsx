@@ -4,7 +4,6 @@ import Header from './Header/Header';
 import '../../Components/App/App.css'
 import axios from 'axios';
 import { ListCardNews } from '../../Components/ListCardNews/ListCardNews';
-import SelectCategorys from './SelectCategorys/SelectCategorys';
 interface News {
     id: string;
     title: string;
@@ -58,7 +57,6 @@ const ConteinerMainNews: FC = () => {
             <Header array={listNews} />
             <hr className={styles.hr} />
             <div className="style-for-title-container">News</div>
-            <SelectCategorys/>
             <div className={styles.BodyNews} >
                 <ListCardNews start={3} n={9} arrayNews={listNews} />
                 <ListCardNews start={9} n={15} arrayNews={listNews} />
