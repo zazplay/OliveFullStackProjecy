@@ -2,83 +2,84 @@
 using Ovile_DAL_Layer.EF;
 using Ovile_DAL_Layer.Entities;
 using Ovile_DAL_Layer.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace Ovile_DAL_Layer.Repositories
 {
-    public class NewsModelRepository : IRepository<News>
+    public class CategoryModelRepository : IRepository<Category>
     {
+
         private readonly NewsContext _context;
 
-        public NewsModelRepository(NewsContext context)
+        public CategoryModelRepository(NewsContext context)
         {
             _context = context;
         }
+        
         /// <summary>
-        /// Получить все новости
+        /// Получить все категории
         /// </summary>
         /// <returns></returns>
-        public async Task<IEnumerable<News>> GetAll()
+        public async Task<IEnumerable<Category>> GetAll()
         {
-            return await _context.News.ToListAsync();
+            return await _context.Categories.ToListAsync();
         }
 
 
         /// <summary>
-        /// Получить новость по айди
+        /// Получить категорию по айди
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        public async Task<News?> Get(Guid id)
+        public async Task<Category?> Get(Guid id)
         {
-            return await _context.News.FindAsync(id);
+            return await _context.Categories.FindAsync(id);
         }
 
 
         /// <summary>
-        /// Найти новость
+        /// Найти категорию
         /// </summary>
         /// <param name="predicate"></param>
         /// <returns></returns>
-        public async Task<News> Find(Func<News, bool> predicate)
+        public async Task<Category> Find(Func<Category, bool> predicate)
         {
-            return await Task.Run(() => _context.Set<News>().FirstOrDefault(predicate));
+            return await Task.Run(() => _context.Set<Category>().FirstOrDefault(predicate));
         }
 
+
         /// <summary>
-        /// Создать новость
+        /// Создать категорию
         /// </summary>
         /// <param name="item"></param>
         /// <returns></returns>
-        public async Task Create(News item)
+        public async Task Create(Category item)
         {
-            await _context.News.AddAsync(item);
+            await _context.Categories.AddAsync(item);
         }
 
+
         /// <summary>
-        /// Обновить новость
+        /// Обновить категорию
         /// </summary>
         /// <param name="item"></param>
         /// <returns></returns>
-        public async Task Update(News item)
+        public async Task Update(Category item)
         {
             _context.Entry(item).State = EntityState.Modified;
         }
 
+
         /// <summary>
-        /// Удалить новость
+        /// Удалить категорию
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
         public async Task Delete(Guid id)
         {
-            var news = await _context.News.FindAsync(id);
-            if (news != null)
+            var category = await _context.Categories.FindAsync(id);
+            if (category != null)
             {
-                _context.News.Remove(news);
+                _context.Categories.Remove(category);
             }
         }
     }

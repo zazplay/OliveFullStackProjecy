@@ -59,6 +59,7 @@ namespace Notes.BusinessLogicLayer.Services
 
             news.CreatedAt = DateTime.Now;
             news.Id = Guid.NewGuid();
+
             await _unitOfWork.News.Create(news);
             await _unitOfWork.CommitChanges();
 

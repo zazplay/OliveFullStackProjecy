@@ -12,8 +12,8 @@ using Ovile_DAL_Layer.EF;
 namespace OliveFullStack.PresentationLayer.Migrations
 {
     [DbContext(typeof(NewsContext))]
-    [Migration("20240918182449_CreateDbNews")]
-    partial class CreateDbNews
+    [Migration("20241002142505_CategoryMigration")]
+    partial class CategoryMigration
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -223,10 +223,28 @@ namespace OliveFullStack.PresentationLayer.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
+            modelBuilder.Entity("Ovile_DAL_Layer.Entities.Category", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Categories");
+                });
+
             modelBuilder.Entity("Ovile_DAL_Layer.Entities.News", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid?>("CategoryId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime>("CreatedAt")
@@ -249,6 +267,8 @@ namespace OliveFullStack.PresentationLayer.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("CategoryId");
 
                     b.ToTable("News");
                 });
@@ -302,6 +322,15 @@ namespace OliveFullStack.PresentationLayer.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("Ovile_DAL_Layer.Entities.News", b =>
+                {
+                    b.HasOne("Ovile_DAL_Layer.Entities.Category", "Category")
+                        .WithMany()
+                        .HasForeignKey("CategoryId");
+
+                    b.Navigation("Category");
                 });
 #pragma warning restore 612, 618
         }

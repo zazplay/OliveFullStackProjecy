@@ -11,10 +11,12 @@ namespace Ovile_DAL_Layer.Repositories
         private bool disposed = false;
         private readonly NewsContext _context;
         private NewsModelRepository _newsRepository;
+        private CategoryModelRepository _categoryRepository;
        
 
         public IRepository<News> News => _newsRepository ??= new NewsModelRepository(_context);
-       
+        public IRepository<Category> Categories => _categoryRepository ??= new CategoryModelRepository(_context);
+
 
         public UnitOfWorkEF(NewsContext context)
         {

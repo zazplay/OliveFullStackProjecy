@@ -5,6 +5,7 @@ using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using Notes.BusinessLogicLayer.Services;
 using Ovile_BLL_Layer.Interfaces;
+using Ovile_BLL_Layer.Services;
 using Ovile_DAL_Layer.EF;
 using Ovile_DAL_Layer.Interfaces;
 using Ovile_DAL_Layer.Repositories;
@@ -80,6 +81,7 @@ builder.Services.AddCors(option =>
 builder.Services.AddAutoMapper(typeof(AutoMaperProfiles));
 builder.Services.AddScoped<IUnitOfWork, UnitOfWorkEF>();
 builder.Services.AddScoped<INewsService, NewsService>();
+builder.Services.AddScoped<ICategoryService, CategoryService>();
 
 
 builder.Services.AddSwaggerGen(options =>

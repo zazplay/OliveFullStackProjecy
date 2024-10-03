@@ -1,4 +1,4 @@
-namespace OliveFullStack.PresentationLayer.Models.Requests
+namespace OliveFullStack.PresentationLayer.Models.Requests.NewsRequests
 {
     public class DeleteNewsRequest
     {

@@ -1,4 +1,6 @@
-﻿namespace OliveFullStack.PresentationLayer.Models.Responses
+﻿using System;
+
+namespace OliveFullStack.PresentationLayer.Models.Responses
 {
     public class NewsResponse
     {
@@ -8,5 +10,7 @@
         public string ImgSrc { get; set; }
         public string Source { get; set; }
         public DateTime CreatedAt { get; set; }
+        public Guid? CategoryId { get; set; }
+        public string? CategoryName { get; set; } 
     }
 }
